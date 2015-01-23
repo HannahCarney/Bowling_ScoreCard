@@ -22,6 +22,16 @@ describe("Bowling", function(){
     it("player can take a turn", function(){
       expect(bowling.turn).toBe(bowling.player);
     });
+
+    it("can hit pins", function() {
+      bowling.pinsDown(9)
+      expect(bowling.pins).toEqual(1)
+    });
+
+    it("can have a strike", function(){
+      bowling.pinsDown(10)
+      expect(bowling.stike).toBe(true)
+    });
   });
 
 });
