@@ -19,12 +19,6 @@ describe("Bowling", function(){
 
   describe("on players turn", function(){
 
-    it("player can take turns", function(){
-      expect(bowling.turn).toBe(1);
-      bowling.pinsDown(10)
-      expect(bowling.turn).toBe(2)
-    });
-
     it("can hit pins", function() {
       bowling.pinsDown(9)
       expect(bowling.pins).toEqual(1)
@@ -34,6 +28,13 @@ describe("Bowling", function(){
       bowling.pinsDown(10)
       expect(bowling.strike).toBe(1)
     });
+
+    it("player can have two attempts per turn", function(){
+      expect(bowling.attempt).toBe(1)
+      bowling.pinsDown(6)
+      expect(bowling.attempt).toBe(2)
+    });
+
   });
 
 });
