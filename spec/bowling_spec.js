@@ -19,8 +19,10 @@ describe("Bowling", function(){
 
   describe("on players turn", function(){
 
-    it("player can take a turn", function(){
-      expect(bowling.turn).toBe(bowling.player);
+    it("player can take turns", function(){
+      expect(bowling.turn).toBe(1);
+      bowling.pinsDown(10)
+      expect(bowling.turn).toBe(2)
     });
 
     it("can hit pins", function() {
@@ -30,7 +32,7 @@ describe("Bowling", function(){
 
     it("can have a strike", function(){
       bowling.pinsDown(10)
-      expect(bowling.stike).toBe(true)
+      expect(bowling.strike).toBe(1)
     });
   });
 
