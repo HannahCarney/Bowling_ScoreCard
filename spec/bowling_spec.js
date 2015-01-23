@@ -6,12 +6,22 @@ describe("Bowling", function(){
     bowling = new Bowling();
   });
 
-  describe("be default", function(){
+  describe("by default", function(){
 
     it("starts with one player", function(){
-      expect(bowling.player).toEqual(1)
+      expect(bowling.player).toBe("Player1");
     });
 
+    it("starts with 10 pins", function(){
+      expect(bowling.pins).toEqual(10);
+    });
+  });
+
+  describe("on players turn", function(){
+
+    it("player can take a turn", function(){
+      expect(bowling.turn).toBe(bowling.player);
+    });
   });
 
 });
