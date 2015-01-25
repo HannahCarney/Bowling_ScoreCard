@@ -15,6 +15,10 @@ describe("Bowling", function(){
     it("starts with 10 pins", function(){
       expect(bowling.pins).toEqual(10);
     });
+
+    it("starts on frame 1", function(){
+      expect(bowling.frameNo).toEqual(1)
+    });
   });
 
   describe("on players turn", function(){
@@ -24,7 +28,7 @@ describe("Bowling", function(){
       expect(bowling.pins).toEqual(1)
     });
 
-    it("can have a strike", function(){
+    it("can have strikes", function(){
       bowling.pinsDown(10)
       expect(bowling.strike).toBe(1)
     });
@@ -35,6 +39,18 @@ describe("Bowling", function(){
       expect(bowling.attempt).toBe(2)
     });
 
+    it("goes up a frame after second attempt", function(){
+      bowling.pinsDown(10)
+      expect(bowling.frameNo).toEqual(2)
+    });
+
   });
 
+  // describe("scoring system", function(){
+
+  //   it("having a stike means 10 points plus next two throws")
+
+  //   });
+
+//   // });
 });

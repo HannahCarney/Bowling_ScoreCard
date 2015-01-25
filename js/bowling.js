@@ -3,6 +3,7 @@ var Bowling = function() {
   this.pins = 10;
   this.attempt = 1;
   this.strike = 0;
+  this.frameNo = 1
 };
 
 Bowling.prototype.newTurn = function() {
@@ -11,9 +12,11 @@ Bowling.prototype.newTurn = function() {
         this.attempt += 1
     }
     else if (this.attempt === 2)
-    {
+    {	
       this.attempt -= 1
+      this.maxFrames()
 	  this.pins = 10
+
 	}
 };
 
@@ -32,3 +35,18 @@ Bowling.prototype.pinsDown = function(number) {
 	    this. newTurn()
 	}
 };
+
+Bowling.prototype.maxFrames = function() {
+
+	if (this.frameNo === 10)
+	{
+		this.frameNo = 1
+		return "This is the end of the game"
+	}
+	else 
+	{
+		this.frameNo += 1
+	}
+
+};
+
