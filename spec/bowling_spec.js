@@ -39,7 +39,7 @@ describe("Bowling", function(){
       expect(bowling.spare).toBe(1)
     });
 
-    it("player can have two attempts per turn", function(){
+    it("player can have only two attempts per turn", function(){
       expect(bowling.attempt).toBe(1)
       bowling.pinsDown(6)
       expect(bowling.attempt).toBe(2)
@@ -52,11 +52,13 @@ describe("Bowling", function(){
 
   });
 
-  // describe("scoring system", function(){
+  describe("scoring system", function(){
 
-  //   it("having a stike means 10 points plus next two throws")
+    it("scores need to be tallied after each frame is complete", function(){
+      bowling.pinsDown(5)
+      bowling.pinsDown(2)
+      expect(bowling.totalPoints).toEqual(7)
+    });
+  });
 
-  //   });
-
-//   // });
 });

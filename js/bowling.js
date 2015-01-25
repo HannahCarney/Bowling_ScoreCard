@@ -5,6 +5,7 @@ var Bowling = function() {
   this.strike = 0;
   this.spare = 0
   this.frameNo = 1;
+  this.totalPoints = 0;
 };
 
 Bowling.prototype.newTurn = function() {
@@ -15,6 +16,7 @@ Bowling.prototype.newTurn = function() {
     else if (this.attempt === 2)
     {	
       this.attempt -= 1
+      this.totalScore()
       this.maxFrames()
 	  this.pins = 10
 
@@ -28,6 +30,7 @@ Bowling.prototype.pinsDown = function(number) {
 	{
 		this.strike += 1
 		this.attempt += 1
+		this.totalScore()
 		this.newTurn()
 	}
 	else
@@ -60,4 +63,26 @@ Bowling.prototype.isASpare = function() {
 	}
 
 };
+
+
+Bowling.prototype.totalScore = function() {
+
+	if (this.strike != 0)
+	{
+	   (this.totalPoints = (10 * this.strike) + this.totalPoints)  
+	}
+
+	else if (this.spare != 0)
+	{
+		(this.totalPoints = (10 * this.spare) + this.totalPoints)
+	}
+
+	else
+	{
+		(this.totalPoints = (10 - this.pins) + this.totalPoints)
+	}
+
+};
+
+
 
