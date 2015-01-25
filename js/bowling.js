@@ -6,6 +6,7 @@ var Bowling = function() {
   this.spare = 0
   this.frameNo = 1;
   this.totalPoints = 0;
+  this.bonusPoints = 0;
 };
 
 Bowling.prototype.newTurn = function() {
@@ -68,19 +69,21 @@ Bowling.prototype.totalScore = function() {
 
 	if (this.strike != 0)
 	{
-	   (this.totalPoints = (10 * this.strike) + this.totalPoints) 
+	   (this.bonusPoints = (10 * this.strike) + this.bonusPoints) 
 	   this.strike = 0 
 	}
 
 	else if (this.spare != 0)
 	{
-		(this.totalPoints = (10 * this.spare) + this.totalPoints)
+		(this.bonusPoints = (10 * this.spare) + this.bonusPoints)
 		this.spare = 0
+	
 	}
 
 	else
 	{
-		(this.totalPoints = (10 - this.pins) + this.totalPoints)
+		(this.totalPoints = (10 - this.pins + (this.bonusPoints)) + (10 - this.pins) + this.totalPoints)
+		this.bonusPoints = 0
 	}
 
 };
