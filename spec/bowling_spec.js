@@ -69,7 +69,7 @@ describe("Bowling", function(){
       bowling.pinsDown(10)
       bowling.pinsDown(3)
       bowling.pinsDown(2)
-      expect(bowling.totalPoints).toEqual(20)
+      expect(bowling.bonusPointsStrike).toEqual(20)
     });
 
     it("after a spare the next one roll is added", function(){
@@ -83,9 +83,9 @@ describe("Bowling", function(){
     it("after two strikes in a row", function() {
       bowling.pinsDown(10)
       bowling.pinsDown(10)
-      bowling.pinsDown(3)
       bowling.pinsDown(1)
-      expect(bowling.totalPoints).toEqual(42)
+      bowling.pinsDown(1)
+      expect(bowling.bonusPointsStrike).toEqual(35)
     });
 
     it("after two spares in a row", function() {
@@ -93,9 +93,11 @@ describe("Bowling", function(){
       bowling.pinsDown(5)
       bowling.pinsDown(5)
       bowling.pinsDown(5)
-      bowling.pinsDown(1)
-      bowling.pinsDown(1)
-      expect(bowling.totalPoints).toEqual(28)
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(2)
+      bowling.pinsDown(2)
+      expect(bowling.totalPoints).toEqual(46)
     });
   });
 
