@@ -30,7 +30,6 @@ Bowling.prototype.pinsDown = function(number) {
 	{
 		this.strike += 1
 		this.attempt += 1
-		this.totalScore()
 		this.newTurn()
 	}
 	else
@@ -69,12 +68,14 @@ Bowling.prototype.totalScore = function() {
 
 	if (this.strike != 0)
 	{
-	   (this.totalPoints = (10 * this.strike) + this.totalPoints)  
+	   (this.totalPoints = (10 * this.strike) + this.totalPoints) 
+	   this.strike = 0 
 	}
 
 	else if (this.spare != 0)
 	{
 		(this.totalPoints = (10 * this.spare) + this.totalPoints)
+		this.spare = 0
 	}
 
 	else
