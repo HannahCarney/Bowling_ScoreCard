@@ -3,7 +3,8 @@ var Bowling = function() {
   this.pins = 10;
   this.attempt = 1;
   this.strike = 0;
-  this.frameNo = 1
+  this.spare = 0
+  this.frameNo = 1;
 };
 
 Bowling.prototype.newTurn = function() {
@@ -32,7 +33,8 @@ Bowling.prototype.pinsDown = function(number) {
 	else
 	{
 	    this.pins = (this.pins - number)
-	    this. newTurn()
+	    this.isASpare()
+	    this.newTurn()
 	}
 };
 
@@ -46,6 +48,15 @@ Bowling.prototype.maxFrames = function() {
 	else 
 	{
 		this.frameNo += 1
+	}
+
+};
+
+Bowling.prototype.isASpare = function() {
+
+	if (this.pins === 0)
+	{
+		this.spare += 1
 	}
 
 };

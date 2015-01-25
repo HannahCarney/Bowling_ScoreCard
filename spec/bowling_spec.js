@@ -33,6 +33,12 @@ describe("Bowling", function(){
       expect(bowling.strike).toBe(1)
     });
 
+    it("can have spares", function(){
+      bowling.pinsDown(7)
+      bowling.pinsDown(3)
+      expect(bowling.spare).toBe(1)
+    });
+
     it("player can have two attempts per turn", function(){
       expect(bowling.attempt).toBe(1)
       bowling.pinsDown(6)
