@@ -85,7 +85,7 @@ describe("Bowling", function(){
       bowling.pinsDown(10)
       bowling.pinsDown(3)
       bowling.pinsDown(1)
-      expect(bowling.totalPoints).toEqual(38)
+      expect(bowling.totalPoints).toEqual(42)
     });
 
     it("after two spares in a row", function() {
@@ -95,7 +95,7 @@ describe("Bowling", function(){
       bowling.pinsDown(5)
       bowling.pinsDown(1)
       bowling.pinsDown(1)
-      expect(bowling.totalPoints).toEqual(33)
+      expect(bowling.totalPoints).toEqual(28)
     });
   });
 

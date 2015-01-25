@@ -60,20 +60,34 @@ Bowling.prototype.maxFrames = function() {
 
 Bowling.prototype.isASpare = function() {
 
-	if (this.pins === 0)
+	if (this.pins === 0 && this.spares.length === 0)
 	{
-		this.spares.push(10 * (this.spares.length + 1))
+	    this.spares.push(10 * (this.spares.length + 1))
+
 	}
+
+	else if (this.pins === 0 && this.spares.length >= 1)
+	{
+		this.spares.push(this.pins1)
+		this.spares.push(10)
+	    
+	
+	}
+	
 	else if (this.attempt === 1)
 	{
 		this.pins1 = (10 - this.pins)
+
 	}
-	else if (this.attempt === 2)
+	else if (this.attempt === 2 && this.pins != 0)
 	{
 		this.pins2 = ((10 - this.pins) - this.pins1)
+		this.spares.push(this.pins1)
 		this.resetSpareCount()
 		this.resetStrikeCount()
 	}
+
+
 
 };
 
