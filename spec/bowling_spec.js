@@ -79,6 +79,24 @@ describe("Bowling", function(){
       bowling.pinsDown(1)
       expect(bowling.totalPoints).toEqual(21)
     });
+
+    it("after two strikes in a row", function() {
+      bowling.pinsDown(10)
+      bowling.pinsDown(10)
+      bowling.pinsDown(3)
+      bowling.pinsDown(1)
+      expect(bowling.totalPoints).toEqual(38)
+    });
+
+    it("after two spares in a row", function() {
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(1)
+      bowling.pinsDown(1)
+      expect(bowling.totalPoints).toEqual(33)
+    });
   });
 
 });

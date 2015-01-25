@@ -2,8 +2,8 @@ var Bowling = function() {
   this.player = "Player1";
   this.pins = 10;
   this.attempt = 1;
-  this.strike = 0;
-  this.spare = 0
+  this.strikes = [];
+  this.spares = [];
   this.frameNo = 1;
   this.totalPoints = 0;
   this.bonusPointsStrike = 0;
@@ -32,7 +32,7 @@ Bowling.prototype.pinsDown = function(number) {
 
 	if (number === 10)
 	{
-		this.strike += 1
+		this.strikes.push(10 * (this.strikes.length + 1))
 		this.attempt += 1
 		this.newTurn()
 	}
@@ -62,7 +62,7 @@ Bowling.prototype.isASpare = function() {
 
 	if (this.pins === 0)
 	{
-		this.spare += 1
+		this.spares.push(10 * (this.spares.length + 1))
 	}
 	else if (this.attempt === 1)
 	{
@@ -71,6 +71,8 @@ Bowling.prototype.isASpare = function() {
 	else if (this.attempt === 2)
 	{
 		this.pins2 = ((10 - this.pins) - this.pins1)
+		this.resetSpareCount()
+		this.resetStrikeCount()
 	}
 
 };
@@ -78,16 +80,14 @@ Bowling.prototype.isASpare = function() {
 
 Bowling.prototype.totalScore = function() {
 
-	if (this.strike != 0)
+	if (this.strikes.length != 0)
 	{
-	   (this.bonusPointsStrike = (10 * this.strike) + this.bonusPointsStrike) 
-	   this.strike = 0 
+      this.addStrikes()
 	}
 
-	else if (this.spare != 0)
+	else if (this.spares.length != 0)
 	{
-		(this.bonusPointsSpare = (10 * this.spare) + this.bonusPointsSpare)
-		this.spare = 0
+	  this.addSpares()
 	
 	}
 
@@ -107,5 +107,27 @@ Bowling.prototype.totalScore = function() {
 
 };
 
+Bowling.prototype.resetStrikeCount = function() {
+  if (this.pins != 10)
+   this.strikes = []
+
+};
+
+Bowling.prototype.resetSpareCount = function() {
+ if (this.pins != 10)
+  this.spares = []
+	
+};
+
+
+Bowling.prototype.addStrikes = function() {
+
+	  this.bonusPointsStrike = (eval(this.strikes.join('+')));
+};
+
+Bowling.prototype.addSpares = function() {
+
+	  this.bonusPointsSpare = (eval(this.spares.join('+')));
+};
 
 
