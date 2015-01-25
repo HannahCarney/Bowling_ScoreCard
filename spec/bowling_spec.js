@@ -30,13 +30,13 @@ describe("Bowling", function(){
 
     it("can have strikes", function(){
       bowling.pinsDown(10)
-      expect(bowling.bonusPoints).toEqual(10)
+      expect(bowling.bonusPointsStrike).toEqual(10)
     });
 
     it("can have spares", function(){
       bowling.pinsDown(7)
       bowling.pinsDown(3)
-      expect(bowling.bonusPoints).toEqual(10)
+      expect(bowling.bonusPointsSpare).toEqual(10)
     });
 
     it("player can have only two attempts per turn", function(){
@@ -63,6 +63,21 @@ describe("Bowling", function(){
       bowling.pinsDown(5)
       bowling.pinsDown(5)
       expect(bowling.totalPoints).toEqual(0)
+    });
+
+    it("after a strike the next two rolls are added", function(){
+      bowling.pinsDown(10)
+      bowling.pinsDown(3)
+      bowling.pinsDown(2)
+      expect(bowling.totalPoints).toEqual(20)
+    });
+
+    it("after a spare the next one roll is added", function(){
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(5)
+      bowling.pinsDown(1)
+      expect(bowling.totalPoints).toEqual(21)
     });
   });
 

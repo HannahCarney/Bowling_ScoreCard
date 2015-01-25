@@ -6,7 +6,10 @@ var Bowling = function() {
   this.spare = 0
   this.frameNo = 1;
   this.totalPoints = 0;
-  this.bonusPoints = 0;
+  this.bonusPointsStrike = 0;
+  this.bonusPointsSpare = 0;
+  this.pins1 = 0;
+  this.pins2 = 0
 };
 
 Bowling.prototype.newTurn = function() {
@@ -61,6 +64,14 @@ Bowling.prototype.isASpare = function() {
 	{
 		this.spare += 1
 	}
+	else if (this.attempt === 1)
+	{
+		this.pins1 = (10 - this.pins)
+	}
+	else if (this.attempt === 2)
+	{
+		this.pins2 = ((10 - this.pins) - this.pins1)
+	}
 
 };
 
@@ -69,21 +80,29 @@ Bowling.prototype.totalScore = function() {
 
 	if (this.strike != 0)
 	{
-	   (this.bonusPoints = (10 * this.strike) + this.bonusPoints) 
+	   (this.bonusPointsStrike = (10 * this.strike) + this.bonusPointsStrike) 
 	   this.strike = 0 
 	}
 
 	else if (this.spare != 0)
 	{
-		(this.bonusPoints = (10 * this.spare) + this.bonusPoints)
+		(this.bonusPointsSpare = (10 * this.spare) + this.bonusPointsSpare)
 		this.spare = 0
 	
 	}
 
 	else
 	{
-		(this.totalPoints = (10 - this.pins + (this.bonusPoints)) + (10 - this.pins) + this.totalPoints)
-		this.bonusPoints = 0
+		if (this.bonusPointsSpare > 0)
+		{
+		  (this.totalPoints = (10 - this.pins + (this.bonusPointsSpare)) + (this.pins1) + this.totalPoints)
+		   this.bonusPoints = 0
+		}
+		else if (this.bonusPointsStrike > 0)
+		{
+		  (this.totalPoints = (10 - this.pins + (this.bonusPointsStrike)) + (this.pins1 + this.pins2) + this.totalPoints)
+		   this.bonusPoints = 0
+		}
 	}
 
 };
