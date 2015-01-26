@@ -5,9 +5,12 @@
   <title>Bowling Scorecard</title>
 </head>
 <body>
+  <div style='position:absolute;z-index:-100;left:0;top:0;width:100%;height:100%'>
+  <img src='http://backgrounds.picaboo.com/download/26/66/266089e22b2a4b2fb77f19973082e54f/Bowling%202.jpg' style='width:100%;height:100%' alt='[]' />
+  </div>
   <section class="scorecard">
     <h1>Bowling Scorecard</h1>
-    <table>
+    <table align="center">
       <tr>
         <th>Frame</th>
         <th>1</th>
@@ -80,11 +83,11 @@
       </tr>
     </table>
   </section>
-
-  <input type="hidden" value="yes" name="submitted">
-  <input type="submit" value="Calculate Score">
-  <input type="reset" value="Reset">
-
+<section align="center">
+  <input class="buttons" type="hidden" value="yes" name="submitted">
+  <input class="buttons" type="submit" value="Calculate Score">
+  <input class="buttons" type="reset" value="Reset">
+</section>
   <script src="js/bowling.js"></script>
 </body>
 </html>
