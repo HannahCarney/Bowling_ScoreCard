@@ -123,18 +123,20 @@ Bowling.prototype.totalScore = function() {
 	
 	}
 
-	else
+	else if (this.bonusPointsSpare > 0)
 	{
-		if (this.bonusPointsSpare > 0)
-		{
 		  (this.totalPoints = (10 - this.pins + (this.bonusPointsSpare)) + (this.pins1) + this.totalPoints)
 		   this.bonusPoints = 0
-		}
-		else if (this.bonusPointsStrike > 0)
-		{
+	}
+	else if (this.bonusPointsStrike > 0)
+	{
 		  (this.totalPoints = (10 - this.pins + (this.bonusPointsStrike)) + (this.pins1 + this.pins2) + this.totalPoints)
 		   this.bonusPoints = 0
-		}
+	}
+
+	else
+	{
+		this.totalPoints = this.pins1 + this.pins2
 	}
 
 };
@@ -162,4 +164,7 @@ Bowling.prototype.addSpares = function() {
 	  this.bonusPointsSpare = (eval(this.spares.join('+')));
 };
 
+Bowling.prototype.reset = function() {
+     this.clear
+};
 

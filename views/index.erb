@@ -27,8 +27,8 @@
       <tr>
         <td>Score</td>
         <td>
-          <input tabindex="2" maxlength="1" size="1" id="shot1">
-          <input tabindex="2" maxlength="1" size="1" id="shot2">
+          <input id="input1" tabindex="2" maxlength="1" size="1" id="shot1">
+          <input id="input1" tabindex="2" maxlength="1" size="1" id="shot2">
         </td>
         <td>
           <input tabindex="2" maxlength="1" size="1" name="shot1">
@@ -70,24 +70,60 @@
       </tr>
       <tr>
         <td><strong>Total Score</strong></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result1"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result2"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result3"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result4"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result5"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result6"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result7"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result8"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result9"></td>
+        <td><output tabindex="2" maxlength="1" size="1" name="result10"></td>
       </tr>
     </table>
   </section>
 <section align="center">
   <input class="buttons" type="hidden" value="yes" name="submitted">
-  <input class="buttons" type="submit" value="Calculate Score">
-  <input class="buttons" type="reset" value="Reset">
+  <input class="buttons" type="submit" onclick="totalPoints()">
+  <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
 </section>
   <script src="js/bowling.js"></script>
+  <script src="js/interface.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+       // function totalPoints(){
+       //   var text=document.getElementById("input1").value
+       // }
+      //  game.pinsDown('shot1');
+      //  game.pinsDown('shot2');
+      // $(document).ready(function() {
+      // $('.submit').on('click', function() {
+      //  game.totalPoints();
+         
+      // });
+      
+    //   $('.decreaseTemp').on('click', function() {
+    //     thermostat.decreaseTemperature(1);
+    //     updateTemperature();
+    //   });
+    //   $('.reset').on('click', function() {
+    //     thermostat.reset();
+    //     updateTemperature();
+    //   });
+    //   $('.PSM-on').on('click', function() {
+    //     thermostat.powerSavingModeSwitch("on");
+    //     updateTemperature();
+    //   });
+    //   $('.PSM-off').on('click', function() {
+    //     thermostat.powerSavingModeSwitch("off");
+    //     updateTemperature();
+    //   });
+    // });
+     $('#reset').on('click', function() {
+        document.location.reload(true);
+      });
+     });
+      </script>
 </body>
 </html>
