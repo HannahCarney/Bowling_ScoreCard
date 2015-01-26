@@ -55,7 +55,6 @@ Bowling.prototype.maxFrames = function() {
 	{
 		this.frameNo += 1
 	}
-
 };
 
 Bowling.prototype.isASpare = function() {
@@ -70,8 +69,6 @@ Bowling.prototype.isASpare = function() {
 	{
 		this.spares.push(this.pins1)
 		this.spares.push(10)
-	    
-	
 	}
 	
 	else if (this.attempt === 1)
@@ -102,12 +99,7 @@ Bowling.prototype.isASpare = function() {
 		this.resetSpareCount()
 		this.resetStrikeCount()
 	}
-
-
-
 };
-
-
 
 Bowling.prototype.totalScore = function() {
 
@@ -136,9 +128,8 @@ Bowling.prototype.totalScore = function() {
 
 	else
 	{
-		this.totalPoints = this.pins1 + this.pins2
+		this.totalPoints = this.totalPoints + this.pins1 + this.pins2
 	}
-
 };
 
 Bowling.prototype.resetStrikeCount = function() {
@@ -163,6 +154,3 @@ Bowling.prototype.addSpares = function() {
 
 	  this.bonusPointsSpare = (eval(this.spares.join('+')));
 };
-
-
-
