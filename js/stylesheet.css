@@ -39,4 +39,15 @@ input {
   border: 1px solid #666;
   color:#000;
   text-decoration:none;
+  width: 8em;
 }
+
+form {
+	width: 6em;
+}
+
+input {
+	width: 1.3em;
+}
+
+
