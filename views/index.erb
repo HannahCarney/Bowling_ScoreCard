@@ -34,14 +34,14 @@
         </td>
         <td>
         <form id="frame2">
-          <input name="frame2pins1" maxlength="2" size="1">
-          <input name="frame2pins2" maxlength="2" size="1">
+          <input name="frame2pins1" maxlength="2" size="1" type="text" required />
+          <input name="frame2pins2" maxlength="2" size="1" type="text" required/>
         </form>
         </td>
         <td>
         <form id="frame3">
-          <input name="frame3pins1" maxlength="2" size="1">
-          <input name="frame3pins2" maxlength="2" size="1">
+          <input name="frame3pins1" type="text" maxlength="2" size="1">
+          <input name="frame3pins2" type="text" maxlength="2" size="1">
         </form>
         </td>
         <td>
@@ -111,23 +111,21 @@
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
   <script src="bowling.js"></script>
       <script type="text/javascript">
-    
-
-        
-  
         function calculate() {
         var game = new Bowling();
         var frame1,frame2,frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10,pins1f1,pins2f1,pins1f2,pins2f2,pins1f3,pins2f3,pins1f4,pins2f4,pins1f5,pins2f5,pins1f6,pins2f6,pins1f7,pins2f7,pins1f8,pins1f8,pins1f9,pins2f9,pins1f10,pins2f10,pins3f10;
         {
         frame1=document.getElementById("frame1");
+        {
         pins1f1=frame1.elements["frame1pins1"].value;
         pins2f1=frame1.elements["frame1pins2"].value;
         game.pinsDown(pins1f1)
         game.pinsDown(pins2f1)
         game.totalPoints
-        
-        document.getElementById("total1").innerHTML=(game.totalPoints);
         }
+          document.getElementById("total1").innerHTML=(game.totalPoints);
+        }
+      
         {
         frame2=document.getElementById("frame2");
         pins1f2=frame2.elements["frame2pins1"].value;
@@ -136,7 +134,11 @@
         game.pinsDown(pins2f2)
         game.totalPoints
         
-        document.getElementById("total2").innerHTML=(game.totalPoints);
+        
+        if (frame2.elements["frame2pins1"].value != "")
+        {
+          document.getElementById("total2").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame3=document.getElementById("frame3");
@@ -145,8 +147,11 @@
         game.pinsDown(pins1f3)
         game.pinsDown(pins2f3)
         game.totalPoints
-        
-        document.getElementById("total3").innerHTML=(game.totalPoints);
+
+        if (frame3.elements["frame3pins1"].value != "")
+        {
+          document.getElementById("total3").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame4=document.getElementById("frame4");
@@ -155,8 +160,11 @@
         game.pinsDown(pins1f4)
         game.pinsDown(pins2f4)
         game.totalPoints
-        
-        document.getElementById("total4").innerHTML=(game.totalPoints);
+
+        if (frame4.elements["frame4pins1"].value != "")
+        {
+          document.getElementById("total4").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame5=document.getElementById("frame5");
@@ -165,8 +173,10 @@
         game.pinsDown(pins1f5)
         game.pinsDown(pins2f5)
         game.totalPoints
-        
-        document.getElementById("total5").innerHTML=(game.totalPoints);
+        if (frame5.elements["frame5pins1"].value != "")
+        {
+          document.getElementById("total5").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame6=document.getElementById("frame6");
@@ -175,8 +185,10 @@
         game.pinsDown(pins1f6)
         game.pinsDown(pins2f6)
         game.totalPoints
-        
-        document.getElementById("total6").innerHTML=(game.totalPoints);
+        if (frame6.elements["frame6pins1"].value != "")
+        {
+          document.getElementById("total6").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame7=document.getElementById("frame7");
@@ -185,8 +197,11 @@
         game.pinsDown(pins1f7)
         game.pinsDown(pins2f7)
         game.totalPoints
-        
-        document.getElementById("total7").innerHTML=(game.totalPoints);
+
+        if (frame7.elements["frame7pins1"].value != "")
+        {
+          document.getElementById("total7").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame8=document.getElementById("frame8");
@@ -195,8 +210,11 @@
         game.pinsDown(pins1f8)
         game.pinsDown(pins2f8)
         game.totalPoints
-        
-        document.getElementById("total8").innerHTML=(game.totalPoints);
+
+        if (frame8.elements["frame8pins1"].value != "")
+        {
+          document.getElementById("total8").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame9=document.getElementById("frame9");
@@ -205,8 +223,10 @@
         game.pinsDown(pins1f9)
         game.pinsDown(pins2f9)
         game.totalPoints
-        
-        document.getElementById("total9").innerHTML=(game.totalPoints);
+        if (frame9.elements["frame9pins1"].value != "")
+        {
+          document.getElementById("total9").innerHTML=(game.totalPoints);
+        }
         }
         {
         frame10=document.getElementById("frame10");

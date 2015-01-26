@@ -9,22 +9,19 @@ h1 {
 }
 
 body {
-  
   color: #ecf0f1;
 }
 
 .scorecard {
   text-align: center;
-  margin: 0 auto;
-  width: 100%;
 }
 
 table, th, td {
-  border: solid 1px #ecf0f1;
+  border: solid .2em #ecf0f1;
 }
 
 td, th {
-  padding: 1em;
+  padding: .5em;
 }
 
 input {
@@ -42,12 +39,9 @@ input {
   width: 8em;
 }
 
-form {
-	width: 6em;
-}
 
 input {
-	width: 1.3em;
+  width: 1.3em;
 }
 
 
