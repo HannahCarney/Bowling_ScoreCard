@@ -69,7 +69,7 @@ describe("Bowling", function(){
       bowling.pinsDown(10)
       bowling.pinsDown(3)
       bowling.pinsDown(2)
-      expect(bowling.bonusPointsStrike).toEqual(20)
+      expect(bowling.totalPoints).toEqual(20)
     });
 
     it("after a spare the next one roll is added", function(){
@@ -85,7 +85,7 @@ describe("Bowling", function(){
       bowling.pinsDown(10)
       bowling.pinsDown(1)
       bowling.pinsDown(1)
-      expect(bowling.bonusPointsStrike).toEqual(35)
+      expect(bowling.totalPoints).toEqual(35)
     });
 
     it("after two spares in a row", function() {

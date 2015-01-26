@@ -103,9 +103,8 @@
       </tr>
     </table>
   </section>
-<section align="center">
-  <input class="buttons" type="hidden" value="yes" name="submitted">
-  <input class="buttons" type="submit" onclick="calculate()">
+<section id="check" align="center">
+  <input class="buttons" name="submit" type="submit" onclick="calculate()" onsubmit="check()">
   <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
 </section>
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
@@ -113,8 +112,10 @@
       <script type="text/javascript">
         function calculate() {
         var game = new Bowling();
+
         var frame1,frame2,frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10,pins1f1,pins2f1,pins1f2,pins2f2,pins1f3,pins2f3,pins1f4,pins2f4,pins1f5,pins2f5,pins1f6,pins2f6,pins1f7,pins2f7,pins1f8,pins1f8,pins1f9,pins2f9,pins1f10,pins2f10,pins3f10;
         {
+         
         frame1=document.getElementById("frame1");
         {
         pins1f1=frame1.elements["frame1pins1"].value;
@@ -240,6 +241,8 @@
         
         document.getElementById("total10").innerHTML=(game.totalPoints);
         }
+
+       
  
         
         };
