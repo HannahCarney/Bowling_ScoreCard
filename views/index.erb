@@ -6,7 +6,7 @@
 </head>
 <body>
   <div style='position:absolute;z-index:-100;left:0;top:0;width:100%;height:100%'>
-  <img src='http://backgrounds.picaboo.com/download/26/66/266089e22b2a4b2fb77f19973082e54f/Bowling%202.jpg' style='width:100%;height:100%' alt='[]' />
+  <img src='Bowling.jpg' style='width:100%;height:100%' alt='[]' />
   </div>
   <section class="scorecard">
     <h1>Bowling Scorecard</h1>
@@ -27,8 +27,10 @@
       <tr>
         <td>Score</td>
         <td>
-          <input id="input1" tabindex="2" maxlength="1" size="1" id="shot1">
-          <input id="input1" tabindex="2" maxlength="1" size="1" id="shot2">
+        <form id="frame1">
+          <input name="frame1pins1" type="text" tabindex="2" maxlength="1" size="1">
+          <input name="frame1pins2" type="text" tabindex="2" maxlength="1" size="1">
+        </form>
         </td>
         <td>
           <input tabindex="2" maxlength="1" size="1" name="shot1">
@@ -70,60 +72,53 @@
       </tr>
       <tr>
         <td><strong>Total Score</strong></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result1"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result2"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result3"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result4"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result5"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result6"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result7"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result8"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result9"></td>
-        <td><output tabindex="2" maxlength="1" size="1" name="result10"></td>
+        <td id="total1"></td>
+        <td id="total2"></td>
+        <td id="total3"></td>
+        <td id="total4"></td>
+        <td id="total5"></td>
+        <td id="total6"></td>
+        <td id="total7"></td>
+        <td id="total8"></td>
+        <td id="total9"></td>
+        <td id="total10"></td>
       </tr>
     </table>
   </section>
 <section align="center">
   <input class="buttons" type="hidden" value="yes" name="submitted">
-  <input class="buttons" type="submit" onclick="totalPoints()">
+  <input class="buttons" type="submit" onclick="calculate()">
   <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
 </section>
-  <script src="js/bowling.js"></script>
-  <script src="js/interface.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+  <script src="bowling.js"></script>
+  <script src="interface.js"></script>
       <script type="text/javascript">
-      $(document).ready(function() {
-       // function totalPoints(){
-       //   var text=document.getElementById("input1").value
-       // }
-      //  game.pinsDown('shot1');
-      //  game.pinsDown('shot2');
-      // $(document).ready(function() {
-      // $('.submit').on('click', function() {
-      //  game.totalPoints();
-         
-      // });
-      
-    //   $('.decreaseTemp').on('click', function() {
-    //     thermostat.decreaseTemperature(1);
-    //     updateTemperature();
-    //   });
-    //   $('.reset').on('click', function() {
-    //     thermostat.reset();
-    //     updateTemperature();
-    //   });
-    //   $('.PSM-on').on('click', function() {
-    //     thermostat.powerSavingModeSwitch("on");
-    //     updateTemperature();
-    //   });
-    //   $('.PSM-off').on('click', function() {
-    //     thermostat.powerSavingModeSwitch("off");
-    //     updateTemperature();
-    //   });
-    // });
-     $('#reset').on('click', function() {
-        document.location.reload(true);
-      });
-     });
+    
+
+        
+  
+        function calculate() {
+        var x,y,z,input1
+        x=document.getElementById("frame1");
+        y=x.elements["frame1pins1"].value;
+        z=x.elements["frame1pins2"].value;
+        game.pinsDown(y)
+        game.pinsDown(z)
+        game.totalPoints
+        
+        document.getElementById("total1").innerHTML=(game.totalPoints);
+        
+        }        
+
+        
+       
+       
+
+
+        
+
+        
       </script>
 </body>
 </html>

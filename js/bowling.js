@@ -164,7 +164,5 @@ Bowling.prototype.addSpares = function() {
 	  this.bonusPointsSpare = (eval(this.spares.join('+')));
 };
 
-Bowling.prototype.reset = function() {
-     this.clear
-};
+
 

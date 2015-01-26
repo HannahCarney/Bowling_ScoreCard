@@ -1,4 +1,2 @@
 var game = new Bowling();
 
-
-};

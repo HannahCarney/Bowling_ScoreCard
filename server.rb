@@ -7,7 +7,5 @@ set :public_dir, Proc.new { File.join(root, "js") }
     erb :index
   end
 
-  post '/' do
-    erb :index
-  end
+
 
