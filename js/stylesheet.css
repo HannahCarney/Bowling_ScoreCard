@@ -1,10 +1,14 @@
 @import url('normalize.css');
 
-  
 
 h1 {
   color: #B80000;
   font-family: arial;
+  text-align: center;
+}
+
+h3 {
+  color: #B80000;
   text-align: center;
 }
 
@@ -31,7 +35,7 @@ input {
 }
 
 .buttons {
-  margin-top: 2em;
+  margin-top: 1em;
   padding:5px;
   background-color: #dcdcdc;
   border: 1px solid #666;

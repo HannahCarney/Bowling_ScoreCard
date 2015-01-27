@@ -18,17 +18,20 @@ Game.prototype.score = function () {
   for (i = 0; i < scoringRolls; i++) {
     if (this._isStrike(i)) {
       score += 10 + this._rolls[i + 1] + this._rolls[i + 2];
+      this.totalPoints = Number(score)
     }
     else if (this._isSpare(i)) {
       score += 10 + this._rolls[i + 2];
       i ++;
+      this.totalPoints = Number(score)
     }
     else 
     {
       score += this._rolls[i];
+      this.totalPoints = Number(score)
     }
   }
-   this.totalPoints = Number(score)
+   
    return Number(score)
 };
 
@@ -47,3 +50,4 @@ Game.prototype._hasBonusRoll = function () {
 
   return (hasBonus) ? tenthFrame : null;
 };
+

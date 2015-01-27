@@ -28,63 +28,63 @@
         <td>Score</td>
         <td>
         <form id="frame1">
-          <input name="frame1pins1" maxlength="2" size="1">
-          <input name="frame1pins2" maxlength="2" size="1">
+          <input name="frame1pins1" id="frame1pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame1pins2'))">
+          <input name="frame1pins2" id="frame1pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame2pins1'))">
         </form>
         </td>
         <td>
         <form id="frame2">
-          <input name="frame2pins1" maxlength="2" size="1" type="text" required />
-          <input name="frame2pins2" maxlength="2" size="1" type="text" required/>
+          <input name="frame2pins1" id="frame2pins1" maxlength="1" size="1" type="text" onkeyup="moveOnMax(this,document.getElementById('frame2pins2'))"/>
+          <input name="frame2pins2" id="frame2pins2" maxlength="1" size="1" type="text" onkeyup="moveOnMax(this,document.getElementById('frame3pins1'))"/>
         </form>
         </td>
         <td>
         <form id="frame3">
-          <input name="frame3pins1" type="text" maxlength="2" size="1">
-          <input name="frame3pins2" type="text" maxlength="2" size="1">
+          <input name="frame3pins1" id="frame3pins1" type="text" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame3pins2'))">
+          <input name="frame3pins2" id="frame3pins2" type="text" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame4pins1'))">
         </form>
         </td>
         <td>
         <form id="frame4">
-          <input name="frame4pins1" maxlength="2" size="1">
-          <input name="frame4pins2" maxlength="2" size="1">
+          <input name="frame4pins1" id="frame4pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame4pins2'))">
+          <input name="frame4pins2" id="frame4pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame5pins1'))">
         </form>
         </td>
         <td>
         <form id="frame5">
-          <input name="frame5pins1" maxlength="2" size="1">
-          <input name="frame5pins2" maxlength="2" size="1">
+          <input name="frame5pins1" id="frame5pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame5pins2'))">
+          <input name="frame5pins2" id="frame5pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame6pins1'))">
         </form>
         </td>
         <td>
         <form id="frame6">
-          <input name="frame6pins1" maxlength="2" size="1">
-          <input name="frame6pins2" maxlength="2" size="1">
+          <input name="frame6pins1" id="frame6pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame6pins2'))">
+          <input name="frame6pins2" id="frame6pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins1'))">
         </form>
         </td>
         <td>
         <form id="frame7">
-          <input name="frame7pins1" maxlength="2" size="1">
-          <input name="frame7pins2" maxlength="2" size="1">
+          <input name="frame7pins1" id="frame7pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins2'))">
+          <input name="frame7pins2" id="frame7pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame8pins1'))">
         </form>
         </td>
         <td>
         <form id="frame8">
-          <input name="frame8pins1" maxlength="2" size="1">
-          <input name="frame8pins2" maxlength="2" size="1">
+          <input name="frame8pins1" id="frame8pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame8pins2'))">
+          <input name="frame8pins2" id="frame8pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame9pins1'))">
         </form>
         </td>
         <td>
         <form id="frame9">
-          <input name="frame9pins1" maxlength="2" size="1">
-          <input name="frame9pins2" maxlength="2" size="1">
+          <input name="frame9pins1" id="frame9pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame9pins2'))">
+          <input name="frame9pins2" id="frame9pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins1'))">
         </form>
         </td>
         <td>
         <form id="frame10">
-          <input name="frame10pins1" maxlength="2" size="1">
-          <input name="frame10pins2" maxlength="2" size="1">
-          <input name="frame10pins3" maxlength="2" size="1">
+          <input name="frame10pins1" id="frame10pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins2'))">
+          <input name="frame10pins2" id="frame10pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'))">
+          <input name="frame10pins3" id="frame10pins3" maxlength="1" size="1">
         </form>
         </td>
       </tr>
@@ -103,13 +103,30 @@
       </tr>
     </table>
   </section>
+  <h3>Please enter 0-9, or X for Stike and / for spare.</h3>
 <section id="check" align="center">
   <input class="buttons" name="submit" type="submit" onclick="calculate()" onsubmit="check()">
   <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
-</section>
+</section>  
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
   <script src="bowling.js"></script>
       <script type="text/javascript">
+
+        function moveOnMax(field, nextFieldID){
+          if (field.value.length >= field.maxLength){
+            nextFieldID.focus(); }
+          }
+        function strikeOrSpare(field) {
+          if (field == "X") {
+            field = Number(10)
+            return field
+          }
+          else {
+            field = Number(field)
+            return field
+          }
+        }
+         
         function calculate() {
         var game = new Game();
 
@@ -122,8 +139,9 @@
         {
         pins1f1=frame1.elements["frame1pins1"].value;
         pins2f1=frame1.elements["frame1pins2"].value;
-        game.roll(Number(pins1f1))
-        game.roll(Number(pins2f1))
+    
+        game.roll(strikeOrSpare(pins1f1))
+        game.roll(strikeOrSpare(pins2f1))
         game.score()
       
         }
@@ -134,8 +152,8 @@
         frame2=document.getElementById("frame2");
         pins1f2=frame2.elements["frame2pins1"].value;
         pins2f2=frame2.elements["frame2pins2"].value;
-        game.roll(Number(pins1f2))
-        game.roll(Number(pins2f2))
+        game.roll(strikeOrSpare(pins1f2))
+        game.roll(strikeOrSpare(pins2f2))
         game.score()
         
         
@@ -148,8 +166,8 @@
         frame3=document.getElementById("frame3");
         pins1f3=frame3.elements["frame3pins1"].value;
         pins2f3=frame3.elements["frame3pins2"].value;
-        game.roll(Number(pins1f3))
-        game.roll(Number(pins2f3))
+        game.roll(strikeOrSpare(pins1f3))
+        game.roll(strikeOrSpare(pins2f3))
         game.score()
     
 
@@ -253,14 +271,18 @@
         document.getElementById("total10").innerHTML=(game.totalPoints);
         }
 
+        
+
        
   
         
         };
-     
-       
-       
 
+
+     
+        
+      
+       
 
         
 
