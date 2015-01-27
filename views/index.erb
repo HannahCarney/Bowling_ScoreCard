@@ -113,15 +113,13 @@
       <script type="text/javascript">
         function moveOnMax(field, nextFieldID){
           if (field.value == "X") {
-              nextFieldID.disabled = true
-              nextFieldID.focus();
-              nextFieldID.focus();
+              nextFieldID.disabled = true;
+              nextFieldID.readOnly = true;
           }
           else if (field.value.length >= field.maxLength){
              nextFieldID.focus(); }
           }
         function strikeOrSpare(field) {
-          var score = 0, i;
           if (field == "X") {
             field = Number(10)
             return field
@@ -131,6 +129,8 @@
             return field
           }
         }
+
+
          
         function calculate() {
         var game = new Game ();
@@ -144,10 +144,11 @@
         {
         pins1f1=frame1.elements["frame1pins1"].value;
         pins2f1=frame1.elements["frame1pins2"].value;
-    
+        
         game.roll(strikeOrSpare(pins1f1))
-        game.roll(strikeOrSpare(pins2f1))
-        game.score()
+        if (document.getElementById('frame1pins2').disabled == false){
+          game.roll(strikeOrSpare(pins2f1))
+          game.score() }
       
         }
           document.getElementById("total1").innerHTML=(game.totalPoints);
@@ -155,13 +156,17 @@
       
         {
         frame2=document.getElementById("frame2");
+        {
         pins1f2=frame2.elements["frame2pins1"].value;
         pins2f2=frame2.elements["frame2pins2"].value;
+        
+
         game.roll(strikeOrSpare(pins1f2))
-        game.roll(strikeOrSpare(pins2f2))
-        game.score()
+        || game.roll(strikeOrSpare(pins2f2))
+        game.score() 
         
         
+        }
         if (frame2.elements["frame2pins1"].value != "")
         {
           document.getElementById("total2").innerHTML=(game.totalPoints);
@@ -172,9 +177,9 @@
         pins1f3=frame3.elements["frame3pins1"].value;
         pins2f3=frame3.elements["frame3pins2"].value;
         game.roll(strikeOrSpare(pins1f3))
-        game.roll(strikeOrSpare(pins2f3))
+        || game.roll(strikeOrSpare(pins2f3))
         game.score()
-    
+      
 
         if (frame3.elements["frame3pins1"].value != "")
         {
