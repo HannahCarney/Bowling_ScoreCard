@@ -1,18 +1,17 @@
-// 
+
 var Game = function () {
   this._rolls = [];
   this._current = 0;
+  this.totalPoints = 0;
 };
 
 Game.prototype.roll = function (pins) {
-  if (typeof pins !== 'number') {
-      throw new Error('expected a number');
-  }
+  
   this._rolls[this._current++] = pins;
 };
 
 Game.prototype.score = function () {
-  var score = 0, i,
+  var score = 0, i;
     hasBonusRoll = this._hasBonusRoll();
     scoringRolls = (hasBonusRoll) ? hasBonusRoll + 1 : this._rolls.length;
 
@@ -29,7 +28,8 @@ Game.prototype.score = function () {
       score += this._rolls[i];
     }
   }
-    return score;
+   this.totalPoints = Number(score)
+   return Number(score)
 };
 
 Game.prototype._isSpare = function (roll) {

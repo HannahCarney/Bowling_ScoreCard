@@ -29,7 +29,7 @@
         <td>
         <form id="frame1">
           <input name="frame1pins1" maxlength="2" size="1">
-          <input name="frame1pins2" maxlength="2" size="1" disabled="disabled">
+          <input name="frame1pins2" maxlength="2" size="1">
         </form>
         </td>
         <td>
@@ -111,18 +111,21 @@
   <script src="bowling.js"></script>
       <script type="text/javascript">
         function calculate() {
-        var game = new Bowling();
+        var game = new Game();
 
         var frame1,frame2,frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10,pins1f1,pins2f1,pins1f2,pins2f2,pins1f3,pins2f3,pins1f4,pins2f4,pins1f5,pins2f5,pins1f6,pins2f6,pins1f7,pins2f7,pins1f8,pins1f8,pins1f9,pins2f9,pins1f10,pins2f10,pins3f10;
+
+        var score = 0, i;
         {
          
         frame1=document.getElementById("frame1");
         {
         pins1f1=frame1.elements["frame1pins1"].value;
         pins2f1=frame1.elements["frame1pins2"].value;
-        game.pinsDown(pins1f1)
-        game.pinsDown(pins2f1)
-        game.totalPoints
+        game.roll(Number(pins1f1))
+        game.roll(Number(pins2f1))
+        game.score()
+      
         }
           document.getElementById("total1").innerHTML=(game.totalPoints);
         }
@@ -131,9 +134,9 @@
         frame2=document.getElementById("frame2");
         pins1f2=frame2.elements["frame2pins1"].value;
         pins2f2=frame2.elements["frame2pins2"].value;
-        game.pinsDown(pins1f2)
-        game.pinsDown(pins2f2)
-        game.totalPoints
+        game.roll(Number(pins1f2))
+        game.roll(Number(pins2f2))
+        game.score()
         
         
         if (frame2.elements["frame2pins1"].value != "")
@@ -145,9 +148,10 @@
         frame3=document.getElementById("frame3");
         pins1f3=frame3.elements["frame3pins1"].value;
         pins2f3=frame3.elements["frame3pins2"].value;
-        game.pinsDown(pins1f3)
-        game.pinsDown(pins2f3)
-        game.totalPoints
+        game.roll(Number(pins1f3))
+        game.roll(Number(pins2f3))
+        game.score()
+    
 
         if (frame3.elements["frame3pins1"].value != "")
         {
@@ -158,9 +162,10 @@
         frame4=document.getElementById("frame4");
         pins1f4=frame4.elements["frame4pins1"].value;
         pins2f4=frame4.elements["frame4pins2"].value;
-        game.pinsDown(pins1f4)
-        game.pinsDown(pins2f4)
-        game.totalPoints
+        game.roll(Number(pins1f4))
+        game.roll(Number(pins2f4))
+        game.score()
+  
 
         if (frame4.elements["frame4pins1"].value != "")
         {
@@ -171,9 +176,10 @@
         frame5=document.getElementById("frame5");
         pins1f5=frame5.elements["frame5pins1"].value;
         pins2f5=frame5.elements["frame5pins2"].value;
-        game.pinsDown(pins1f5)
-        game.pinsDown(pins2f5)
-        game.totalPoints
+        game.roll(Number(pins1f5))
+        game.roll(Number(pins2f5))
+        game.score()
+        
         if (frame5.elements["frame5pins1"].value != "")
         {
           document.getElementById("total5").innerHTML=(game.totalPoints);
@@ -183,9 +189,10 @@
         frame6=document.getElementById("frame6");
         pins1f6=frame6.elements["frame6pins1"].value;
         pins2f6=frame6.elements["frame6pins2"].value;
-        game.pinsDown(pins1f6)
-        game.pinsDown(pins2f6)
-        game.totalPoints
+        game.roll(Number(pins1f6))
+        game.roll(Number(pins2f6))
+        game.score()
+        
         if (frame6.elements["frame6pins1"].value != "")
         {
           document.getElementById("total6").innerHTML=(game.totalPoints);
@@ -195,9 +202,10 @@
         frame7=document.getElementById("frame7");
         pins1f7=frame7.elements["frame7pins1"].value;
         pins2f7=frame7.elements["frame7pins2"].value;
-        game.pinsDown(pins1f7)
-        game.pinsDown(pins2f7)
-        game.totalPoints
+        game.roll(Number(pins1f7))
+        game.roll(Number(pins2f7))
+        game.score()
+     
 
         if (frame7.elements["frame7pins1"].value != "")
         {
@@ -208,9 +216,10 @@
         frame8=document.getElementById("frame8");
         pins1f8=frame8.elements["frame8pins1"].value;
         pins2f8=frame8.elements["frame8pins2"].value;
-        game.pinsDown(pins1f8)
-        game.pinsDown(pins2f8)
-        game.totalPoints
+        game.roll(Number(pins1f8))
+        game.roll(Number(pins2f8))
+        game.score()
+       
 
         if (frame8.elements["frame8pins1"].value != "")
         {
@@ -221,9 +230,10 @@
         frame9=document.getElementById("frame9");
         pins1f9=frame9.elements["frame9pins1"].value;
         pins2f9=frame9.elements["frame9pins2"].value;
-        game.pinsDown(pins1f9)
-        game.pinsDown(pins2f9)
-        game.totalPoints
+        game.roll(Number(pins1f9))
+        game.roll(Number(pins2f9))
+        game.score()
+       
         if (frame9.elements["frame9pins1"].value != "")
         {
           document.getElementById("total9").innerHTML=(game.totalPoints);
@@ -234,21 +244,20 @@
         pins1f10=frame10.elements["frame10pins1"].value;
         pins2f10=frame10.elements["frame10pins2"].value;
         pins3f10=frame10.elements["frame10pins3"].value;
-        game.pinsDown(pins1f10)
-        game.pinsDown(pins2f10)
-        game.pinsDown(pins3f10)
-        game.totalPoints
+        game.roll(Number(pins1f10))
+        game.roll(Number(pins2f10))
+        game.roll(Number(pins3f10))
+        game.score()
+       
         
         document.getElementById("total10").innerHTML=(game.totalPoints);
         }
 
        
- 
+  
         
         };
-
-
-        
+     
        
        
 
