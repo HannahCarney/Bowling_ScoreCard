@@ -28,8 +28,8 @@
         <td>Score</td>
         <td>
         <form id="frame1">
-          <input name="frame1pins1" id="frame1pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame1pins2'))">
-          <input name="frame1pins2" id="frame1pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame2pins1'))">
+          <input name="frame1pins1" id="frame1pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame1pins2'))"/>
+          <input name="frame1pins2" id="frame1pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame2pins1'))"/>
         </form>
         </td>
         <td>
@@ -111,12 +111,17 @@
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
   <script src="bowling.js"></script>
       <script type="text/javascript">
-
         function moveOnMax(field, nextFieldID){
-          if (field.value.length >= field.maxLength){
-            nextFieldID.focus(); }
+          if (field.value == "X") {
+              nextFieldID.disabled = true
+              nextFieldID.focus();
+              nextFieldID.focus();
+          }
+          else if (field.value.length >= field.maxLength){
+             nextFieldID.focus(); }
           }
         function strikeOrSpare(field) {
+          var score = 0, i;
           if (field == "X") {
             field = Number(10)
             return field
@@ -128,7 +133,7 @@
         }
          
         function calculate() {
-        var game = new Game();
+        var game = new Game ();
 
         var frame1,frame2,frame3,frame4,frame5,frame6,frame7,frame8,frame9,frame10,pins1f1,pins2f1,pins1f2,pins2f2,pins1f3,pins2f3,pins1f4,pins2f4,pins1f5,pins2f5,pins1f6,pins2f6,pins1f7,pins2f7,pins1f8,pins1f8,pins1f9,pins2f9,pins1f10,pins2f10,pins3f10;
 
@@ -180,8 +185,8 @@
         frame4=document.getElementById("frame4");
         pins1f4=frame4.elements["frame4pins1"].value;
         pins2f4=frame4.elements["frame4pins2"].value;
-        game.roll(Number(pins1f4))
-        game.roll(Number(pins2f4))
+        game.roll(strikeOrSpare(pins1f4))
+        game.roll(strikeOrSpare(pins2f4))
         game.score()
   
 
@@ -194,8 +199,8 @@
         frame5=document.getElementById("frame5");
         pins1f5=frame5.elements["frame5pins1"].value;
         pins2f5=frame5.elements["frame5pins2"].value;
-        game.roll(Number(pins1f5))
-        game.roll(Number(pins2f5))
+        game.roll(strikeOrSpare(pins1f5))
+        game.roll(strikeOrSpare(pins2f5))
         game.score()
         
         if (frame5.elements["frame5pins1"].value != "")
@@ -207,8 +212,8 @@
         frame6=document.getElementById("frame6");
         pins1f6=frame6.elements["frame6pins1"].value;
         pins2f6=frame6.elements["frame6pins2"].value;
-        game.roll(Number(pins1f6))
-        game.roll(Number(pins2f6))
+        game.roll(strikeOrSpare(pins1f6))
+        game.roll(strikeOrSpare(pins2f6))
         game.score()
         
         if (frame6.elements["frame6pins1"].value != "")
@@ -220,8 +225,8 @@
         frame7=document.getElementById("frame7");
         pins1f7=frame7.elements["frame7pins1"].value;
         pins2f7=frame7.elements["frame7pins2"].value;
-        game.roll(Number(pins1f7))
-        game.roll(Number(pins2f7))
+        game.roll(strikeOrSpare(pins1f7))
+        game.roll(strikeOrSpare(pins2f7))
         game.score()
      
 
@@ -234,8 +239,8 @@
         frame8=document.getElementById("frame8");
         pins1f8=frame8.elements["frame8pins1"].value;
         pins2f8=frame8.elements["frame8pins2"].value;
-        game.roll(Number(pins1f8))
-        game.roll(Number(pins2f8))
+        game.roll(strikeOrSpare(pins1f8))
+        game.roll(strikeOrSpare(pins2f8))
         game.score()
        
 
@@ -248,8 +253,8 @@
         frame9=document.getElementById("frame9");
         pins1f9=frame9.elements["frame9pins1"].value;
         pins2f9=frame9.elements["frame9pins2"].value;
-        game.roll(Number(pins1f9))
-        game.roll(Number(pins2f9))
+        game.roll(strikeOrSpare(pins1f9))
+        game.roll(strikeOrSpare(pins2f9))
         game.score()
        
         if (frame9.elements["frame9pins1"].value != "")
@@ -262,9 +267,9 @@
         pins1f10=frame10.elements["frame10pins1"].value;
         pins2f10=frame10.elements["frame10pins2"].value;
         pins3f10=frame10.elements["frame10pins3"].value;
-        game.roll(Number(pins1f10))
-        game.roll(Number(pins2f10))
-        game.roll(Number(pins3f10))
+        game.roll(strikeOrSpare(pins1f10))
+        game.roll(strikeOrSpare(pins2f10))
+        game.roll(strikeOrSpare(pins3f10))
         game.score()
        
         
