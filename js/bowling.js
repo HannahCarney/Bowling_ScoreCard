@@ -7,7 +7,8 @@ var Game = function () {
 
 Game.prototype.roll = function (pins) {
   
-  this._rolls[this._current++] = pins;
+  roll = this._rolls[this._current++] = pins;
+  return roll 
 };
 
 Game.prototype.score = function () {
@@ -50,4 +51,6 @@ Game.prototype._hasBonusRoll = function () {
 
   return (hasBonus) ? tenthFrame : null;
 };
+
+
 

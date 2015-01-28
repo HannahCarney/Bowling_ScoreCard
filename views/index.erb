@@ -59,7 +59,7 @@
         <td>
         <form id="frame6">
           <input name="frame6pins1" id="frame6pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame6pins2'))">
-          <input name="frame6pins2" id="frame6pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins1'))">
+          <input name="frame6pins2" id="frame6pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins1'));">
         </form>
         </td>
         <td>
@@ -105,49 +105,124 @@
   </section>
   <h3>Please enter 0-9, or X for Stike and / for spare.</h3>
 <section id="check" align="center">
-  <input class="buttons" name="submit" type="submit" id="calculate" onsubmit="check()">
+  <input class="buttons" name="submit" type="submit" id="calculate">
   <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
 </section>  
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
   <script src="bowling.js"></script>
   <script src="interface.js"></script>
   <script type="text/javascript">
-        function moveOnMax(field, nextFieldID){
-          if (field.value == "X") {
-              nextFieldID.disabled = true;
-          }
-          else if (field.value.length >= field.maxLength){
-             nextFieldID.focus(); }
-          }
-        function strikeOrSpare(field) {
-          if (field == "X") {
-            field = Number(10)
-            return field
-          }
-          else {
-            field = Number(field)
-            return field
-          }
-        }
-          
-        // $(document).ready(function() {
-        //   var value1 = $('#frame1pins1').val() 
-        //       $('#total1').keyup()
-        //    });
 
-        $(document).ready(function(){
-          var game = new Game();
-          $('#calculate').on('click', function() {
-            var val1 = parseInt($('#frame1pins1').val());
-            game.roll(val1)
-            var val2 = parseInt($('#frame1pins2').val());
-            game.roll(val2)
-            game.score()
+     $(document).ready(function () {
+
+       $('#calculate').on('click', function() {
+            game = new Game();
+            var val1 = $('#frame1pins1').val();
+            game.roll(strikeOrSpare(val1));
+            game.score();
             $('#total1').text(game.totalPoints);
+            var val2 = $('#frame1pins2').val();
+            game.roll(strikeOrSpare(val2));
+            game.score();
+            $('#total1').text(game.totalPoints);       
           });
-        });
-        
-     
+
+       $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame2pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame2pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            
+              $('#total2').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame3pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame3pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total3').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame4pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame4pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total4').text(game.totalPoints);        
+          });
+
+           $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame5pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame5pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total5').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame6pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame6pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total6').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame7pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame7pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total7').text(game.totalPoints);        
+          });
+
+           $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame8pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame8pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total8').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame9pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame9pins2').val());
+            game.roll(strikeOrSpare(val2))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total9').text(game.totalPoints);        
+          });
+
+          $('#calculate').on('click', function() {
+            var val1 = parseInt($('#frame10pins1').val());
+            game.roll(strikeOrSpare(val1))
+            var val2 = parseInt($('#frame10pins2').val());
+            game.roll(strikeOrSpare(val2))
+            var val3 = parseInt($('#frame10pins3').val());
+            game.roll(strikeOrSpare(val3))
+            game.score()
+            // if (!isNaN(val1))
+              $('#total10').text(game.totalPoints);        
+          }); 
+
+     });
+           
+
+          
         
       
        
