@@ -127,19 +127,27 @@
 
     $(document).ready(function () {
 
+     
+
       var calculate = function(game, frame) {
         var val1 = $(frame).find('.pins1').val();
         
-        if (val1 != "X") {
-          var val2 = $(frame).find('.pins2').val();
-          game.roll(strikeOrSpare(val2));
-        }
+          if (val1 != "X") {
+            var val2 = $(frame).find('.pins2').val();
 
-        game.roll(strikeOrSpare(val1));
+            game.roll(strikeOrSpare(val2));
+          }
 
-        game.score();
-          $(frame).find('.total').text(game.totalPoints);
+          game.roll(strikeOrSpare(val1));
+
+          game.score();
+          
+          $(frame).find('.total').text(isNan(game.totalPoints));
+      
         };
+
+      
+    
 
 
        $('#calculate').on('click', function() {
