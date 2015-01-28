@@ -11,6 +11,7 @@
   var strikeOrSpare = function(field) {
     if (field == "X") {
       field = parseInt(10);
+
     }
     else {
       field = parseInt(field);

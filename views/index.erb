@@ -124,18 +124,23 @@
   <script src="bowling.js"></script>
   <script src="interface.js"></script>
   <script type="text/javascript">
+
     $(document).ready(function () {
 
       var calculate = function(game, frame) {
         var val1 = $(frame).find('.pins1').val();
-        var val2 = $(frame).find('.pins2').val();
         
+        if (val1 != "X") {
+          var val2 = $(frame).find('.pins2').val();
+          game.roll(strikeOrSpare(val2));
+        }
+
         game.roll(strikeOrSpare(val1));
-        game.roll(strikeOrSpare(val2));
 
         game.score();
           $(frame).find('.total').text(game.totalPoints);
         };
+
 
        $('#calculate').on('click', function() {
             game = new Game();
@@ -152,16 +157,7 @@
             calculate(game, $("#frame10"));
                  
          });
-       });
-           
-
-          
-        
-      
-       
-
-        
-
+       });             
         
       </script>
 </body>
