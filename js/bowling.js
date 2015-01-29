@@ -32,7 +32,7 @@ Game.prototype.score = function () {
     }
   }
    
-   return Number(score)
+   return this.totalPoints
 };
 
 Game.prototype._isSpare = function (roll) {
