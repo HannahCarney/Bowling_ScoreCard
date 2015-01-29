@@ -30,7 +30,7 @@
         <form id="frame1">
           <input name="frame1pins1" id="frame1pins1" class="pins1" maxlength="1" size="1" type ="text" onkeyup="moveOnMax(this,document.getElementById('frame1pins2'))"/>
           <input name="frame1pins2" id="frame1pins2" class="pins2" maxlength="1" size="1" type="text" onkeyup="moveOnMax(this,document.getElementById('frame2pins1'))"/>
-          <span class="total">Total</span>
+          
         </form>
 
         </td>
@@ -38,56 +38,56 @@
         <form id="frame2">
           <input name="frame2pins1" id="frame2pins1" class="pins1" maxlength="1" size="1" type="text" onkeyup="moveOnMax(this,document.getElementById('frame2pins2'))"/>
           <input name="frame2pins2" id="frame2pins2" class="pins2" maxlength="1" size="1" type="text" onkeyup="moveOnMax(this,document.getElementById('frame3pins1'))"/>
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
         <form id="frame3">
           <input name="frame3pins1" id="frame3pins1" class="pins1" type="text" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame3pins2'))">
           <input name="frame3pins2" id="frame3pins2" class="pins2" type="text" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame4pins1'))">
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
         <form id="frame4">
           <input name="frame4pins1" id="frame4pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame4pins2'))">
           <input name="frame4pins2" id="frame4pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame5pins1'))">
-          <span class="total">Total</span>
+         
         </form>
         </td>
         <td>
         <form id="frame5">
           <input name="frame5pins1" id="frame5pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame5pins2'))">
           <input name="frame5pins2" id="frame5pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame6pins1'))">
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
         <form id="frame6">
           <input name="frame6pins1" id="frame6pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame6pins2'))">
           <input name="frame6pins2" id="frame6pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins1'));">
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
         <form id="frame7">
           <input name="frame7pins1" id="frame7pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame7pins2'))">
           <input name="frame7pins2" id="frame7pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame8pins1'))">
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
         <form id="frame8">
           <input name="frame8pins1" id="frame8pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame8pins2'))">
           <input name="frame8pins2" id="frame8pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame9pins1'))">
-          <span class="total">Total</span>
+         
         </form>
         </td>
         <td>
         <form id="frame9">
           <input name="frame9pins1" id="frame9pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame9pins2'))">
           <input name="frame9pins2" id="frame9pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins1'))">
-          <span class="total">Total</span>
+          
         </form>
         </td>
         <td>
@@ -95,23 +95,23 @@
           <input name="frame10pins1" id="frame10pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins2'))">
           <input name="frame10pins2" id="frame10pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'))">
           <input name="frame10pins3" id="frame10pins3" class="pins3" maxlength="1" size="1">
-          <span class="total">Total</span>
+          
         </form>
         </td>
       </tr>
       <tr>
         <td><strong>Total Score</strong></td>
 
-        <td id="total1"></td>
-        <td id="total2"></td>
-        <td id="total3"></td>
-        <td id="total4"></td>
-        <td id="total5"></td>
-        <td id="total6"></td>
-        <td id="total7"></td>
-        <td id="total8"></td>
-        <td id="total9"></td>
-        <td id="total10"></td>
+        <td class="total" id="total1"></td>
+        <td class="total" id="total2"></td>
+        <td class="total" id="total3"></td>
+        <td class="total" id="total4"></td>
+        <td class="total" id="total5"></td>
+        <td class="total" id="total6"></td>
+        <td class="total" id="total7"></td>
+        <td class="total" id="total8"></td>
+        <td class="total" id="total9"></td>
+        <td class="total" id="total10"></td>
       </tr>
     </table>
   </section>
@@ -124,45 +124,33 @@
   <script src="bowling.js"></script>
   <script src="interface.js"></script>
   <script type="text/javascript">
-
     $(document).ready(function () {
-
-     
-
-      var calculate = function(game, frame) {
+      var calculate = function(game, frame, total) {
         var val1 = $(frame).find('.pins1').val();
         
-          if (val1 != "X") {
-            var val2 = $(frame).find('.pins2').val();
+        if (val1 != "X") {
+          var val2 = $(frame).find('.pins2').val();
+          game.roll(strikeOrSpare(val2));
+        }
+        game.roll(strikeOrSpare(val1));
+        game.score();
+          // $(frame).find('.total').text(isNan(game.totalPoints));
+          $(total).text(isNan(game.totalPoints));
 
-            game.roll(strikeOrSpare(val2));
-          }
-
-          game.roll(strikeOrSpare(val1));
-
-          game.score();
-          
-          $(frame).find('.total').text(isNan(game.totalPoints));
-      
         };
-
-      
-    
-
-
        $('#calculate').on('click', function() {
             game = new Game();
             
-            calculate(game, $("#frame1"));
-            calculate(game, $("#frame2"));
-            calculate(game, $("#frame3"));
-            calculate(game, $("#frame4"));
-            calculate(game, $("#frame5"));
-            calculate(game, $("#frame6"));
-            calculate(game, $("#frame7"));
-            calculate(game, $("#frame8"));
-            calculate(game, $("#frame9"));
-            calculate(game, $("#frame10"));
+            calculate(game, $("#frame1"), $("#total1"));
+            calculate(game, $("#frame2"), $("#total2"));
+            calculate(game, $("#frame3"), $("#total3"));
+            calculate(game, $("#frame4"), $("#total4"));
+            calculate(game, $("#frame5"), $("#total5"));
+            calculate(game, $("#frame6"), $("#total6"));
+            calculate(game, $("#frame7"), $("#total7"));
+            calculate(game, $("#frame8"), $("#total8"));
+            calculate(game, $("#frame9"), $("#total9"));
+            calculate(game, $("#frame10"), $("#total10"));
                  
          });
        });             

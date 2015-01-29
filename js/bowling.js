@@ -8,7 +8,6 @@ var Game = function () {
 Game.prototype.roll = function (pins) {
   
   roll = this._rolls[this._current++] = pins;
-  return roll 
 };
 
 Game.prototype.score = function () {
