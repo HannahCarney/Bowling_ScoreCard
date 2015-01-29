@@ -129,13 +129,16 @@
         var val1 = $(frame).find('.pins1').val();
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != "X" && $(frame) != $("#frame10") ) {
+        if (val1 != "X") {
           var val2 = $(frame).find('.pins2').val();
           game.roll(strikeOrSpare(val2));
         }
         
-         if ($(frame) === $("#frame10")){
+        else if (frame.attr("id") == "frame10"){
+           var val2 = $(frame).find('.pins2').val();
+          game.roll(strikeOrSpare(val2));
            var val3 = $(frame).find('.pins3').val();
+           game.roll(strikeOrSpare(val3));
          }
 
         game.score();
