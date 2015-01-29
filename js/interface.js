@@ -1,13 +1,12 @@
-
-  function moveOnMax(field, nextFieldID, disabled, lastFieldID){
+ function moveOnMax(field, nextFieldID, disabled){
     if (field.value == "X" && field.id != ("frame10pins1") && field.id != ("frame10pins2")) {
         nextFieldID.disabled = true;
         disabled.focus(); }
 
-    else if (field.value != "X" && field.id == ("frame10pins2") && (parseInt(field.value) + parseInt(lastFieldID.value) != 10)){
+    else if (field.value != "X" && field.id == ("frame10pins2")) {
       nextFieldId.disabled = true;
     }
-    else {
+    else if (field.value.length >= field.maxLength){
        nextFieldID.focus(); }
     };
 
@@ -29,4 +28,3 @@
           return "";
         }
       };
-
