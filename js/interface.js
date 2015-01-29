@@ -1,7 +1,8 @@
 
-  function moveOnMax(field, nextFieldID){
+  function moveOnMax(field, nextFieldID, disabled){
     if (field.value == "X") {
         nextFieldID.disabled = true;
+        disabled.focus();
     }
     else if (field.value.length >= field.maxLength){
        nextFieldID.focus(); }
