@@ -8,6 +8,7 @@ var Game = function () {
 Game.prototype.roll = function (pins) {
   
   roll = this._rolls[this._current++] = pins;
+  return roll
 };
 
 Game.prototype.score = function () {
@@ -18,20 +19,17 @@ Game.prototype.score = function () {
   for (i = 0; i < scoringRolls; i++) {
     if (this._isStrike(i)) {
       score += 10 + this._rolls[i + 1] + this._rolls[i + 2];
-      this.totalPoints = Number(score)
     }
     else if (this._isSpare(i)) {
       score += 10 + this._rolls[i + 2];
       i ++;
-      this.totalPoints = Number(score)
     }
     else 
     {
       score += this._rolls[i];
-      this.totalPoints = Number(score)
     }
   }
-   
+   this.totalPoints = Number(score)
    return this.totalPoints
 };
 
@@ -50,5 +48,6 @@ Game.prototype._hasBonusRoll = function () {
 
   return (hasBonus) ? tenthFrame : null;
 };
+
 
 
