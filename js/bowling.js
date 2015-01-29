@@ -52,4 +52,4 @@ Game.prototype._hasBonusRoll = function () {
 };
 
 
-
+set :app_file, __FILE__
