@@ -137,6 +137,7 @@
 
        
          else if (frame.attr("id") == "frame10" && val1 == "X") {
+           console.log("frame10")
             var val2 = $(frame).find('.pins2').val();
            game.roll(strikeOrSpare(val2));
            var val3 = $(frame).find('.pins3').val();
@@ -152,8 +153,8 @@
          }
 
 
-        else {
-            console.log('here')
+        else if ($("#frame10").find('.pins3').val() >= 0){
+          console.log("fuck")
            var val2 = $(frame).find('.pins2').val();
            game.roll(strikeOrSpare(val2));
             var val3 = $(frame).find('.pins3').val();
