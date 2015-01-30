@@ -115,7 +115,7 @@
       </tr>
     </table>
   </section>
-  <h3>Please enter 0-9, or X for Stike</h3>
+  <h3>Please enter 0-9, or X for Strike</h3>
 <section id="check" align="center">
   <input class="buttons" name="submit" type="submit" id="calculate">
   <input class="buttons" type="reset" id="reset" value="Reset" onClick="window.location.reload()">
@@ -129,14 +129,14 @@
         var val1 = $(frame).find('.pins1').val();
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != "X" && frame.attr("id") != "frame10") {
+        if (val1 != "x" && frame.attr("id") != "frame10") {
           var val2 = $(frame).find('.pins2').val();
           game.roll(strikeOrSpare(val2));
 
         }
 
        
-         else if (frame.attr("id") == "frame10" && val1 == "X") {
+         else if (frame.attr("id") == "frame10" && val1 == "x") {
            console.log("frame10")
             var val2 = $(frame).find('.pins2').val();
            game.roll(strikeOrSpare(val2));
