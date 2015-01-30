@@ -143,23 +143,24 @@
            game.roll(strikeOrSpare(val3));
          }
 
-        
-         else if (frame.attr("id") == "frame10" && ($("#frame10").find('.pins1').val() + $("#frame10").find('.pins2').val() != 10)){
-           var val2 = $(frame).find('.pins2').val();
-          game.roll(strikeOrSpare(val2));
-        
-        }
-
-          else if (($("#frame10").find('.pins1').val() + $("#frame10").find('.pins2').val() == 10)) {
+         else if ($("#frame10").find('.pins3').val() == '') {
+           console.log("yay")
            var val2 = $(frame).find('.pins2').val();
            game.roll(strikeOrSpare(val2));
-           var val3 = $(frame).find('.pins3').val();
-           game.roll(strikeOrSpare(val3));
-           
+          
+
          }
 
 
+        else {
+            console.log('here')
+           var val2 = $(frame).find('.pins2').val();
+           game.roll(strikeOrSpare(val2));
+            var val3 = $(frame).find('.pins3').val();
+           game.roll(strikeOrSpare(val3));
 
+           
+         }
 
         game.score();
           $(total).text(isNan(game.totalPoints));
