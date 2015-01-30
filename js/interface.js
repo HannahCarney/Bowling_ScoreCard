@@ -1,4 +1,4 @@
- function moveOnMax(field, nextFieldID, disabled){
+function moveOnMax(field, nextFieldID, disabled){
     if (field.value == "X" && field.id != ("frame10pins1") && field.id != ("frame10pins2")) {
         nextFieldID.disabled = true;
         disabled.focus(); }
@@ -28,3 +28,5 @@
           return "";
         }
       };
+
+

@@ -93,7 +93,7 @@
         <td>
         <form id="frame10">
           <input name="frame10pins1" id="frame10pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins2'), document.getElementById('frame10pins3'))">
-          <input name="frame10pins2" id="frame10pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'))">
+          <input name="frame10pins2" id="frame10pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'),this,document.getElementById('frame10pins1')))">
           <input name="frame10pins3" id="frame10pins3" class="pins3" maxlength="1" size="1" onkeyup="moveOnMax(this)">
           
         </form>
@@ -129,7 +129,7 @@
         var val1 = $(frame).find('.pins1').val();
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != "X") {
+        if (val1 != ("x" || "X")) {
           var val2 = $(frame).find('.pins2').val();
           game.roll(strikeOrSpare(val2));
         }
