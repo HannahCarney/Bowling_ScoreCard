@@ -1,12 +1,12 @@
 function moveOnMax(field, nextFieldID, disabled, lastFieldID){
-    if (field.value == "x" && field.id != ("frame10pins1") && field.id != ("frame10pins2")) {
+    if (field.value.toLowerCase() == "x" && field.id != ("frame10pins1") && field.id != ("frame10pins2")) {
         nextFieldID.disabled = true;
         disabled.focus(); }
 
-    else if (field.value != "x" && field.id == ("frame10pins2") && (parseInt(field.value) + parseInt(lastFieldID.value) != 10)) {
+    else if (field.value.toLowerCase() != "x" && field.id == ("frame10pins2") && (parseInt(field.value) + parseInt(lastFieldID.value) != 10)) {
       nextFieldID.disabled = true;
     }
-     else if (field.value != "x" && field.id == ("frame10pins2") && (parseInt(field.value) + parseInt(lastFieldID.value) == 10)){
+     else if (field.value.toLowerCase() != "x" && field.id == ("frame10pins2") && (parseInt(field.value) + parseInt(lastFieldID.value) == 10)){
       nextFieldID.focus();
     }
     else if (field.value.length >= field.maxLength){
@@ -14,7 +14,7 @@ function moveOnMax(field, nextFieldID, disabled, lastFieldID){
     };
 
   var strikeOrSpare = function(field) {
-    if (field == "x") {
+    if (field.toLowerCase() == "x") {
       field = parseInt(10);
 
     }

@@ -126,27 +126,26 @@
   <script type="text/javascript">
     $(document).ready(function () {
       var calculate = function(game, frame, total) {
-        var val1 = $(frame).find('.pins1').val();
+        var val1 = $(frame).find('.pins1').val().toLowerCase();
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != "x" && frame.attr("id") != "frame10") {
-          var val2 = $(frame).find('.pins2').val();
+        if (val1.toLowerCase() != "x" && frame.attr("id") != "frame10") {
+          var val2 = $(frame).find('.pins2').val().toLowerCase();
           game.roll(strikeOrSpare(val2));
 
         }
 
        
-         else if (frame.attr("id") == "frame10" && val1 == "x") {
+         else if (frame.attr("id") == "frame10" && val1.toLowerCase() == "x") {
            console.log("frame10")
-            var val2 = $(frame).find('.pins2').val();
+            var val2 = $(frame).find('.pins2').val().toLowerCase();
            game.roll(strikeOrSpare(val2));
-           var val3 = $(frame).find('.pins3').val();
+           var val3 = $(frame).find('.pins3').val().toLowerCase();
            game.roll(strikeOrSpare(val3));
          }
 
          else if ($("#frame10").find('.pins3').val() == '') {
-           console.log("yay")
-           var val2 = $(frame).find('.pins2').val();
+           var val2 = $(frame).find('.pins2').val().toLowerCase();
            game.roll(strikeOrSpare(val2));
           
 
@@ -154,10 +153,9 @@
 
 
         else if ($("#frame10").find('.pins3').val() >= 0){
-          console.log("fuck")
-           var val2 = $(frame).find('.pins2').val();
+           var val2 = $(frame).find('.pins2').val().toLowerCase();
            game.roll(strikeOrSpare(val2));
-            var val3 = $(frame).find('.pins3').val();
+            var val3 = $(frame).find('.pins3').val().toLowerCase();
            game.roll(strikeOrSpare(val3));
 
            
