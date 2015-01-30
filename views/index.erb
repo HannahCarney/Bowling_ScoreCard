@@ -93,8 +93,8 @@
         <td>
         <form id="frame10">
           <input name="frame10pins1" id="frame10pins1" class="pins1" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins2'), document.getElementById('frame10pins3'))">
-          <input name="frame10pins2" id="frame10pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'),this,document.getElementById('frame10pins1')))">
-          <input name="frame10pins3" id="frame10pins3" class="pins3" maxlength="1" size="1" onkeyup="moveOnMax(this)">
+          <input name="frame10pins2" id="frame10pins2" class="pins2" maxlength="1" size="1" onkeyup="moveOnMax(this,document.getElementById('frame10pins3'),this,document.getElementById('frame10pins1'))">
+          <input name="frame10pins3" id="frame10pins3" class="pins3" maxlength="1" size="1" onkeyup="moveOnMax(this,this,this,this)">
           
         </form>
         </td>
@@ -129,17 +129,38 @@
         var val1 = $(frame).find('.pins1').val();
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != ("x" || "X")) {
+        if (val1 != "X" && frame.attr("id") != "frame10") {
           var val2 = $(frame).find('.pins2').val();
           game.roll(strikeOrSpare(val2));
+
         }
-        
-        else if (frame.attr("id") == "frame10"){
-           var val2 = $(frame).find('.pins2').val();
-          game.roll(strikeOrSpare(val2));
+
+       
+         else if (frame.attr("id") == "frame10" && val1 == "X") {
+            var val2 = $(frame).find('.pins2').val();
+           game.roll(strikeOrSpare(val2));
            var val3 = $(frame).find('.pins3').val();
            game.roll(strikeOrSpare(val3));
          }
+
+        
+         else if (frame.attr("id") == "frame10" && ($("#frame10").find('.pins1').val() + $("#frame10").find('.pins2').val() != 10)){
+           var val2 = $(frame).find('.pins2').val();
+          game.roll(strikeOrSpare(val2));
+        
+        }
+
+          else if (($("#frame10").find('.pins1').val() + $("#frame10").find('.pins2').val() == 10)) {
+           var val2 = $(frame).find('.pins2').val();
+           game.roll(strikeOrSpare(val2));
+           var val3 = $(frame).find('.pins3').val();
+           game.roll(strikeOrSpare(val3));
+           
+         }
+
+
+
+
         game.score();
           $(total).text(isNan(game.totalPoints));
         };
