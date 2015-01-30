@@ -3,6 +3,11 @@ Thermostat
 Week 5 JavaScript Challenge
 -------------------------
 :bowling: :construction: Under Development :construction: :bowling:
+Screenshot
+---
+<div align="center">
+        <img width="45%" src="public/images/background`.png">
+</div>
 Heroku (live)
 -----
 [Scorecard]: https://bowlingscorecard.herokuapp.com
