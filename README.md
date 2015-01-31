@@ -1,8 +1,7 @@
-Thermostat
+:bowling: Bowling Score Card :bowling:
 ==========
 Week 5 JavaScript Challenge
 -------------------------
-:bowling: :construction: Under Development :construction: :bowling:
 Screenshot
 ---
 <div align="center">
