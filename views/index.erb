@@ -126,50 +126,47 @@
   <script type="text/javascript">
     $(document).ready(function () {
       var calculate = function(game, frame, total) {
+
         var val1 = $(frame).find('.pins1').val().toLowerCase();
+        var val2 = $(frame).find('.pins2').val().toLowerCase();
+
         game.roll(strikeOrSpare(val1));
         
-        if (val1 != "x") {
-          var val2 = $(frame).find('.pins2').val().toLowerCase();
+        if (val1 != "x") { 
           game.roll(strikeOrSpare(val2));
         }
       
         game.score();
           $(total).text(isNan(game.totalPoints));
-        };
+      };
 
-        var calculateTenthFrame = function(game,frame,total){
-          var val1 = $(frame).find('.pins1').val().toLowerCase();
+      var calculateTenthFrame = function(game,frame,total){
+
+        var val1 = $(frame).find('.pins1').val().toLowerCase();
+        var val2 = $(frame).find('.pins2').val().toLowerCase();
+        var val3 = $(frame).find('.pins3').val().toLowerCase();
+
           game.roll(strikeOrSpare(val1));
 
 
-          if ($("#frame10").find('.pins3').val() == '') {
-            var val2 = $(frame).find('.pins2').val().toLowerCase();
-            game.roll(strikeOrSpare(val2));  
-         
+        if ($("#frame10").find('.pins3').val() == '') {   
+          game.roll(strikeOrSpare(val2));    
           }
 
-          else if (val1 = "x".toLowerCase()){
-            var val2 = $(frame).find('.pins2').val().toLowerCase();
-            game.roll(strikeOrSpare(val2));
-            var val3 = $(frame).find('.pins3').val();
-            game.roll(strikeOrSpare(val3));
+        else if (val1 = "x".toLowerCase()){
+          game.roll(strikeOrSpare(val2));
+          game.roll(strikeOrSpare(val3));
          }
           
 
-          else if ($("#frame10").find('.pins3').val() >= 0){
-            var val2 = $(frame).find('.pins2').val().toLowerCase();
-            game.roll(strikeOrSpare(val2));
-            var val3 = $(frame).find('.pins3').val().toLowerCase();
-            game.roll(strikeOrSpare(val3));
-           
-         }
-         
+        else if ($("#frame10").find('.pins3').val() >= 0){
+          game.roll(strikeOrSpare(val2));
+          game.roll(strikeOrSpare(val3));   
+         }       
+
          game.score();
           $(total).text(isNan(game.totalPoints));
-
-
-        }
+      };
        $('#calculate').on('click', function() {
             game = new Game();
             
