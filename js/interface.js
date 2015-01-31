@@ -1,5 +1,5 @@
 function moveOnMax(field, nextFieldID, disabled, lastFieldID){
-    if (field.value.toLowerCase() == "x" && field.id != ("frame10pins1") && field.id != ("frame10pins2")) {
+    if (field.value.toLowerCase() == "x" && field.id != ("frame10pins1") && field.id != ("frame10pins2") && field.id != ("frame10pins3")) {
         nextFieldID.disabled = true;
         disabled.focus(); }
 
@@ -10,7 +10,7 @@ function moveOnMax(field, nextFieldID, disabled, lastFieldID){
       nextFieldID.focus();
     }
     else if (field.value.length >= field.maxLength){
-       nextFieldID.focus(); }
+      nextFieldID.focus(); }
     };
 
   var strikeOrSpare = function(field) {
@@ -26,8 +26,8 @@ function moveOnMax(field, nextFieldID, disabled, lastFieldID){
 
    var isNan = function(input) {
         if (!isNaN(input)) {
-          return input;
-        } else {
+          return input }
+        else {
           return "";
         }
       };
